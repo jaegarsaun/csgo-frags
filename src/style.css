@@ -1,0 +1,84 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+@font-face {
+    font-family: 'PTSans-Regular';
+    src: url(./fonts/PT_Sans/PTSans-Regular.ttf);
+}
+@font-face {
+    font-family: 'PTSans-Bold';
+    src: url(./fonts/PT_Sans/PTSans-Bold.ttf);
+}
+
+
+.app-background{
+  background: rgb(8, 7, 28);
+  background: linear-gradient(
+    180deg,
+    rgba(8, 7, 28, 1) 0%,
+    rgba(15, 14, 84, 1) 30%,
+    rgba(19, 17, 113, 1) 50%,
+    rgba(14, 13, 83, 1) 70%,
+    rgba(6, 6, 34, 1) 100%
+  );
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100%;
+  z-index: -1;
+}
+.p-tag{
+  font-family: 'PTSans-Regular', sans-serif;
+}
+h1{
+    font-family: 'PTSans-Regular', sans-serif;
+}
+.BoldHeader{
+    font-family: 'PTSans-Bold', sans-serif;
+    font-weight: 700;
+}
+
+.mapName{
+  font-family: 'PTSans-Bold', sans-serif;
+  font-weight: 700;
+}
+.headerText{
+  font-family: 'PTSans-Regular', sans-serif;
+}
+.MapSelector::-webkit-scrollbar {
+  display: none;
+}
+
+
+.menu{
+  width: 250px;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: white;
+  z-index: 100;
+
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+
+  transform: translate(-300px);
+
+  transition: all 0.3s ease-in-out;
+}
+
+.menu.open{
+  transform: translate(0px);
+}
+
+.hamburger{
+  color: white;
+  transition: all 0.3s ease-in-out;
+}
+.hamburger.open{
+  color: black;
+}
