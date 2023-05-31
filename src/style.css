@@ -186,8 +186,9 @@ h1{
   padding-left: 15px;
 }
 
-.nav-link:hover{
+.nav-link:hover, .nav-link:focus, .nav-link:focus-within{
   border: 1.5px solid #3D4452;
   background-color: var(--primary-highlight-color);
+  outline: none;
 
 }

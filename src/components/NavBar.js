@@ -17,7 +17,7 @@ function NavBar() {
     const [isOpen, setIsOpen] = useState(false);
 
     const handleClick = () => {
-      setIsOpen(!isOpen);
+        setIsOpen(!isOpen);
     };
 
 
@@ -28,30 +28,62 @@ function NavBar() {
         <nav style={styles.NavBar}>
             {/* Left side of the navbar where the hamburger is */}
             <button style={styles.sandwhichContainer} className={`hamburger-button ${isOpen ? 'open' : ''}`} onClick={handleClick}>
-                <FaBars style={styles.sandwhich} className={`hamburger ${isOpen ? 'open' : ''}`}/>
+                <FaBars style={styles.sandwhich} className={`hamburger ${isOpen ? 'open' : ''}`} />
             </button>
 
             {/* Menu */}
             <div className={`menu ${isOpen ? 'open' : ''}`}>
                 <div className="menu-item">
-                    <p className="font-reg primary-text">ACTIVE DUTY</p>
-                    <Line/>
+                    <p className="font-reg primary-text" tabIndex={0}>ACTIVE DUTY MAPS</p>
+                    <Line />
                     <ul style={styles.ul}>
-                        <li className="font-bold secondary-text nav-link" style={styles.li}>Dust 2</li>
-                        <li className="font-bold secondary-text nav-link" style={styles.li}>Inferno</li>
-                        <li className="font-bold secondary-text nav-link" style={styles.li}>Mirage</li>
-                        <li className="font-bold secondary-text nav-link" style={styles.li}>Nuke</li>
-                        <li className="font-bold secondary-text nav-link" style={styles.li}>Overpass</li>
-                        <li className="font-bold secondary-text nav-link" style={styles.li}>Train</li>
-                        <li className="font-bold secondary-text nav-link" style={styles.li}>Vertigo</li>
-                        
+                        <li className="font-bold secondary-text nav-link" style={styles.li}>
+                            <a tabIndex={0}>ANCIENT</a>
+                        </li>
+                        <li className="font-bold secondary-text nav-link" style={styles.li}>
+                            <a tabIndex={0}>ANUBIS</a>
+                        </li>
+                        <li className="font-bold secondary-text nav-link" style={styles.li}>
+                            <a tabIndex={0}>INFERNO</a>
+                        </li>
+                        <li className="font-bold secondary-text nav-link" style={styles.li}>
+                            <a tabIndex={0}>MIRAGE</a>
+                        </li>
+                        <li className="font-bold secondary-text nav-link" style={styles.li}>
+                            <a tabIndex={0}>NUKE</a>
+                        </li>
+                        <li className="font-bold secondary-text nav-link" style={styles.li}>
+                            <a tabIndex={0}>OVERPASS</a>
+                        </li>
+                        <li className="font-bold secondary-text nav-link" style={styles.li}>
+                            <a tabIndex={0}>VETIGO</a>
+                        </li>
+
+                    </ul>
+                </div>
+                <div className="menu-item">
+                    <p className="font-reg primary-text" tabIndex={0}>RESERVE MAPS</p>
+                    <Line />
+                    <ul style={styles.ul}>
+                        <li className="font-bold secondary-text nav-link" style={styles.li}>
+                            <a tabIndex={0}>CACHE</a>
+                        </li>
+                        <li className="font-bold secondary-text nav-link" style={styles.li}>
+                            <a tabIndex={0}>DUST II</a>
+                        </li>
+                        <li className="font-bold secondary-text nav-link" style={styles.li}>
+                            <a tabIndex={0}>TRAIN</a>
+                        </li>
+                        <li className="font-bold secondary-text nav-link" style={styles.li}>
+                            <a tabIndex={0}>TUSCAN</a>
+                        </li>
                     </ul>
                 </div>
             </div>
             {/* Right side where the profile is */}
             <div className={`overlay ${isOpen ? 'open' : ''}`} onClick={handleClick}></div>
         </nav>
-        
+
     );
 }
 
