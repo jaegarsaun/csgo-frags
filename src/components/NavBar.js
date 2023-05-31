@@ -20,9 +20,88 @@ function NavBar() {
         setIsOpen(!isOpen);
     };
 
+    const activeDutyMapCollection = [
+        {
+            name: 'Ancient',
+            numOfNades: 15,
+            id: 1,
+            activeDuty: true
+        },
+        {
+            name: 'Anubis',
+            numOfNades: 4,
+            id: 2,
+            activeDuty: true
+        },
+        {
+            name: 'Inferno',
+            numOfNades: 24,
+            id: 3,
+            activeDuty: true
+        },
+        {
+            name: 'Mirage',
+            numOfNades: 2,
+            id: 4,
+            activeDuty: true
+        },
+        {
+            name: 'Nuke',
+            numOfNades: 42,
+            id: 5,
+            activeDuty: true
+
+        },
+        {
+            name: 'Overpass',
+            numOfNades: 12,
+            id: 6,
+            activeDuty: true
+        },
+        {
+            name: 'Vertigo',
+            numOfNades: 15,
+            id: 7,
+            activeDuty: true
+        },
+        {
+            name: 'Cache',
+            numOfNades: 13,
+            id: 8,
+            activeDuty: false
+        },
+        {
+            name: 'Dust ii',
+            numOfNades: 19,
+            id: 9,
+            activeDuty: false
+        },
+        {
+            name: 'Train',
+            numOfNades: 23,
+            id: 10,
+            activeDuty: false
+        },
+        {
+            name: 'Tuscan',
+            numOfNades: 8,
+            id: 11,
+            activeDuty: false
+        },
+    ]
 
 
-
+    function NavLink({ mapInfo }) {
+        const mapName = mapInfo.name.toUpperCase();
+        return (
+            <li className="font-bold secondary-text nav-link" style={styles.li} >
+                <a tabIndex={0}>{mapName}</a>
+                <div>
+                    <p className="font-reg secondary-text">{mapInfo.numOfNades}</p>
+                </div>
+            </li>
+        )
+    }
 
     return (
         <nav style={styles.NavBar}>
@@ -37,27 +116,11 @@ function NavBar() {
                     <p className="font-reg primary-text" tabIndex={0}>ACTIVE DUTY MAPS</p>
                     <Line />
                     <ul style={styles.ul}>
-                        <li className="font-bold secondary-text nav-link" style={styles.li}>
-                            <a tabIndex={0}>ANCIENT</a>
-                        </li>
-                        <li className="font-bold secondary-text nav-link" style={styles.li}>
-                            <a tabIndex={0}>ANUBIS</a>
-                        </li>
-                        <li className="font-bold secondary-text nav-link" style={styles.li}>
-                            <a tabIndex={0}>INFERNO</a>
-                        </li>
-                        <li className="font-bold secondary-text nav-link" style={styles.li}>
-                            <a tabIndex={0}>MIRAGE</a>
-                        </li>
-                        <li className="font-bold secondary-text nav-link" style={styles.li}>
-                            <a tabIndex={0}>NUKE</a>
-                        </li>
-                        <li className="font-bold secondary-text nav-link" style={styles.li}>
-                            <a tabIndex={0}>OVERPASS</a>
-                        </li>
-                        <li className="font-bold secondary-text nav-link" style={styles.li}>
-                            <a tabIndex={0}>VETIGO</a>
-                        </li>
+                        {activeDutyMapCollection
+                            .filter((mapInfo) => mapInfo.activeDuty) // Filter the array to include only objects with activeDuty set to true
+                            .map((mapInfo) => (
+                                <NavLink mapInfo={mapInfo} key={mapInfo.id} />
+                            ))}
 
                     </ul>
                 </div>
@@ -65,18 +128,11 @@ function NavBar() {
                     <p className="font-reg primary-text" tabIndex={0}>RESERVE MAPS</p>
                     <Line />
                     <ul style={styles.ul}>
-                        <li className="font-bold secondary-text nav-link" style={styles.li}>
-                            <a tabIndex={0}>CACHE</a>
-                        </li>
-                        <li className="font-bold secondary-text nav-link" style={styles.li}>
-                            <a tabIndex={0}>DUST II</a>
-                        </li>
-                        <li className="font-bold secondary-text nav-link" style={styles.li}>
-                            <a tabIndex={0}>TRAIN</a>
-                        </li>
-                        <li className="font-bold secondary-text nav-link" style={styles.li}>
-                            <a tabIndex={0}>TUSCAN</a>
-                        </li>
+                        {activeDutyMapCollection
+                            .filter((mapInfo) => !mapInfo.activeDuty) // Filter the array to include only objects with activeDuty set to true
+                            .map((mapInfo) => (
+                                <NavLink mapInfo={mapInfo} key={mapInfo.id} />
+                            ))}
                     </ul>
                 </div>
             </div>

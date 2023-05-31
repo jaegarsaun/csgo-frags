@@ -7,7 +7,7 @@ function PopularNades() {
     // Example data
     const nades = [
         {
-            map: 'inferno',
+            map: 'ancient',
             type: 'smoke',
             title: 'CT Smoke',
             description: 'This is a smoke for CT',
@@ -19,7 +19,7 @@ function PopularNades() {
             tag: 'popular'
         },
         {
-            map: 'inferno',
+            map: 'mirage',
             type: 'smoke',
             title: 'CT Smoke',
             description: 'This is a smoke for CT',
@@ -43,7 +43,7 @@ function PopularNades() {
             tag: 'popular'
         },
         {
-            map: 'inferno',
+            map: 'vertigo',
             type: 'smoke',
             title: 'CT Smoke',
             description: 'This is a smoke for CT',
@@ -52,30 +52,6 @@ function PopularNades() {
             likes: '1002',
             comments: '5',
             id: '4',
-            tag: 'popular'
-        },
-        {
-            map: 'inferno',
-            type: 'smoke',
-            title: 'CT Smoke',
-            description: 'This is a smoke for CT',
-            image: 'https://i.imgur.com/3Z0Qq8M.png',
-            views: '100',
-            likes: '523',
-            comments: '5',
-            id: '5',
-            tag: 'popular'
-        },
-        {
-            map: 'inferno',
-            type: 'smoke',
-            title: 'CT Smoke',
-            description: 'This is a smoke for CT',
-            image: 'https://i.imgur.com/3Z0Qq8M.png',
-            views: '100',
-            likes: '230',
-            comments: '5',
-            id: '6',
             tag: 'popular'
         }
     ]

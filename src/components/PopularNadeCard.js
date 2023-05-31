@@ -15,8 +15,8 @@ function PopularNadeCard(props) {
     }else {
         badge = <Badge variant='outline'>VERIFIED</Badge>
     }
-
-
+    const mapName = props.map.toLowerCase();
+    const mapImage = require(`../images/MapImages/${mapName}-map.webp`);
     return(
     <div style={styles.PopularNadeCard} className="card">
         <div style= {styles.top}>
@@ -28,7 +28,7 @@ function PopularNadeCard(props) {
             </p>
         </div>
         <div style={styles.middle}>
-            <img src="http://localhost:3000/static/media/inferno-map.04b6ec153599907c5589.webp" style={styles.img}/>
+            <img src={mapImage} style={styles.img}/>
         </div>
         <div style={styles.bottom}>
             <div style={styles.left}>{badge}</div>

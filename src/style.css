@@ -184,6 +184,7 @@ h1{
   cursor: pointer;
   border: 1.5px solid transparent;
   padding-left: 15px;
+  padding-right: 15px;
 }
 
 .nav-link:hover, .nav-link:focus, .nav-link:focus-within{

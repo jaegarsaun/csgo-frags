@@ -26,7 +26,7 @@ const styles = {
     headerStyle: {
         height: '70vh',
         display: 'flex',
-        justifyContent: 'space-between',
+        justifyContent: 'center',
         alignItems: 'center',
         overflow: 'hidden',
         padding: '15px'
