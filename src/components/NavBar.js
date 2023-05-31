@@ -6,6 +6,7 @@ import { FaBars } from 'react-icons/fa';
 import Line from './line'
 
 import '../style.css';
+import { click } from "@testing-library/user-event/dist/click";
 
 
 
@@ -18,6 +19,7 @@ function NavBar() {
     const handleClick = () => {
       setIsOpen(!isOpen);
     };
+
 
 
 
@@ -47,7 +49,7 @@ function NavBar() {
                 </div>
             </div>
             {/* Right side where the profile is */}
-            <div className={`overlay ${isOpen ? 'open' : ''}`}></div>
+            <div className={`overlay ${isOpen ? 'open' : ''}`} onClick={handleClick}></div>
         </nav>
         
     );
