@@ -81,7 +81,7 @@ function PopularNades() {
     ]
     return (
     <div style={styles.PopularNades} className="PopularNades">
-        <p style={styles.title} className="p-tag">MOST POPULAR FRAGS</p>
+        <p style={styles.title} className="font-reg primary-text">MOST POPULAR FRAGS</p>
 
         <SimpleGrid minChildWidth='300px' spacing="15px">
         {nades.map((nade) => (
@@ -110,7 +110,6 @@ const styles = {
     },
     title:{
         fontSize: '35px',
-        color: 'white',
     }
 }
 

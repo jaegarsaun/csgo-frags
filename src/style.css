@@ -12,17 +12,61 @@
     src: url(./fonts/PT_Sans/PTSans-Bold.ttf);
 }
 
+:root{
+  --primary-color: #0D1520;
+  --secondary-color: #121927;
+
+  --primary-text-color: #ffffff;
+  --secondary-text-color: #BBC1C8;
+
+  --primary-border-color: #3D4452;
+
+  --primary-button-color: #212836;
+  --secondary-button-color: #262C35;
+
+  --primary-highlight-color: #212836;
+
+  --card-color: #151C2C;
+
+
+}
+.card{
+  background-color: var(--card-color);
+}
+.font-reg{
+  font-family: 'PTSans-Regular', sans-serif;
+}
+.font-bold{
+  font-family: 'PTSans-Bold', sans-serif;
+}
+.primary-text{
+  color: var(--primary-text-color);
+}
+.secondary-text{
+  color: var(--secondary-text-color);
+}
+.primary-color{
+  background-color: var(--primary-color);
+}
+.secondary-color{
+  background-color: var(--secondary-color);
+}
+.primary-highlight:hover{
+  background-color: var(--primary-highlight-color);
+}
+.primary-button{
+  background-color: var(--primary-button-color);
+  border: 3px solid var(--primary-border-color);
+  border-radius: 10px;
+}
+.secondary-button{
+  background-color: var(--secondary-button-color);
+  border: 3px solid var(--primary-border-color);
+  border-radius: 10px;
+}
 
 .app-background{
-  background: rgb(8, 7, 28);
-  background: linear-gradient(
-    180deg,
-    rgba(8, 7, 28, 1) 0%,
-    rgba(15, 14, 84, 1) 30%,
-    rgba(19, 17, 113, 1) 50%,
-    rgba(14, 13, 83, 1) 70%,
-    rgba(6, 6, 34, 1) 100%
-  );
+  background-color: var(--primary-color);
   position: fixed;
   top: 0;
   left: 0;
@@ -54,21 +98,24 @@ h1{
 
 
 .menu{
-  width: 250px;
+  width: 225px;
   height: 100%;
   position: fixed;
   top: 0;
   left: 0;
-  background-color: white;
   z-index: 100;
 
   display: flex;
   justify-content: center;
   flex-direction: column;
 
-  transform: translate(-300px);
+  transform: translate(-225px);
 
   transition: all 0.3s ease-in-out;
+
+  background-color: var(--secondary-color);
+
+  padding: 15px;
 }
 
 .menu.open{
@@ -79,6 +126,4 @@ h1{
   color: white;
   transition: all 0.3s ease-in-out;
 }
-.hamburger.open{
-  color: black;
-}
+

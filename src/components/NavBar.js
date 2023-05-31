@@ -28,9 +28,11 @@ function NavBar() {
                 <FaBars style={styles.sandwhich} className={`hamburger ${isOpen ? 'open' : ''}`}/>
             </button>
 
-
+            {/* Menu */}
             <div className={`menu ${isOpen ? 'open' : ''}`}>
-  
+                <div className="menu-item">
+                    
+                </div>
             </div>
             {/* Right side where the profile is */}
         </nav>

@@ -18,12 +18,12 @@ function PopularNadeCard(props) {
 
 
     return(
-    <div style={styles.PopularNadeCard}>
+    <div style={styles.PopularNadeCard} className="card">
         <div style= {styles.top}>
-            <p style={styles.p} className="p-tag">
+            <p style={styles.p} className="font-bold primary-text">
                 {props.title}
             </p>
-            <p style={styles.pBottom} className="p-tag">
+            <p style={styles.pBottom} className="font-reg secondary-text">
                 {props.type}
             </p>
         </div>
@@ -46,7 +46,6 @@ const styles = {
     PopularNadeCard: {
         height: '300px',
 
-        backgroundColor: '#2A2A39',
         borderRadius: '8px',
         boxShadow: 'rgba(0, 0, 0, 0.24) 0px 3px 8px',
         display: 'flex',
@@ -56,7 +55,7 @@ const styles = {
     },
     top: {
         height: '67px',
-        backgroundColor: 'rgba(21, 24, 41, 0.47)',
+
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
@@ -79,12 +78,9 @@ const styles = {
         objectFit: 'cover',
     },
     p:{
-        color: 'white',
         fontSize: '20px',
-        fontWeight: 'bold',
     },
     pBottom:{
-        color: 'white',
         fontSize: '15px',
         display: 'flex',
     },
