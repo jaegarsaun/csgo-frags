@@ -1,20 +1,18 @@
 import React from "react";
 import { useState } from "react";
 
-import { ChakraProvider } from "@chakra-ui/react";
-import { FaBars, FaRegUserCircle } from 'react-icons/fa';
+import { FaBars, FaRegUserCircle, FaSignOutAlt } from 'react-icons/fa';
 import {
     Menu,
     MenuButton,
     MenuList,
     MenuItem,
-    MenuItemOption,
-    MenuGroup,
-    MenuOptionGroup,
     MenuDivider,
-    Button,
+    Image,
+    border,
+    transition,
 } from '@chakra-ui/react'
-import { ChevronDownIcon } from '@chakra-ui/icons'
+import { ChevronDownIcon, AddIcon, DeleteIcon } from '@chakra-ui/icons'
 import Line from './line'
 
 import '../style.css';
@@ -25,15 +23,10 @@ import { useAuth } from '../contexts/AuthContext';
 
 function NavBar() {
     const { signInWithGoogle, signOut, currentUser } = useAuth();
-
-
-
     const [isOpen, setIsOpen] = useState(false);
-
     const handleClick = () => {
         setIsOpen(!isOpen);
     };
-
     const activeDutyMapCollection = [
         {
             name: 'Ancient',
@@ -103,8 +96,6 @@ function NavBar() {
             activeDuty: false
         },
     ]
-
-
     function NavLink({ mapInfo }) {
         const mapName = mapInfo.name;
         return (
@@ -116,8 +107,6 @@ function NavBar() {
             </li>
         )
     }
-
-
     return (
         <nav style={styles.NavBar}>
             {/* Left side of the navbar where the hamburger is */}
@@ -156,18 +145,73 @@ function NavBar() {
                 {currentUser ? (
                     <Menu>
                         <MenuButton className="primary-button font-reg secondary-text" style={styles.menu} >
-                            <div style={styles.profilecont}>
-                                <FaRegUserCircle style={styles.profile} />
-                                {currentUser.displayName}
-                                <ChevronDownIcon style={styles.chevron} />
-                            </div>
+
+                            {currentUser.displayName}
+                            <ChevronDownIcon />
+
                         </MenuButton>
-                        <MenuList>
-                            <MenuItem>Download</MenuItem>
-                            <MenuItem>Create a Copy</MenuItem>
-                            <MenuItem>Mark as Draft</MenuItem>
-                            <MenuItem>Delete</MenuItem>
-                            <MenuItem>Attend a Workshop</MenuItem>
+                        <MenuList style={styles.dropdownmenu}>
+                            <MenuItem
+                                style={styles.dropdownItem}
+                                icon={<AddIcon />}
+                                className="font-reg secondary-text"
+                                onMouseEnter={(e) => {
+                                    e.currentTarget.style.backgroundColor = styles.dropdownItemHover.backgroundColor;
+                                    e.currentTarget.style.border = styles.dropdownItemHover.border;
+                                }}
+                                onMouseLeave={(e) => {
+                                    e.currentTarget.style.backgroundColor = styles.dropdownItem.backgroundColor;
+                                    e.currentTarget.style.border = styles.dropdownItem.border;
+                                }}
+                            >
+                                Add Nade
+                            </MenuItem>
+                            <MenuItem
+                                style={styles.dropdownItem}
+                                icon={<DeleteIcon />}
+                                className="font-reg secondary-text"
+                                onMouseEnter={(e) => {
+                                    e.currentTarget.style.backgroundColor = styles.dropdownItemHover.backgroundColor;
+                                    e.currentTarget.style.border = styles.dropdownItemHover.border;
+                                }}
+                                onMouseLeave={(e) => {
+                                    e.currentTarget.style.backgroundColor = styles.dropdownItem.backgroundColor;
+                                    e.currentTarget.style.border = styles.dropdownItem.border;
+                                }}
+                            >
+                                Delete Nade
+                            </MenuItem>
+                            <MenuItem
+                                style={styles.dropdownItem}
+                                icon={<FaRegUserCircle />}
+                                className="font-reg secondary-text"
+                                onMouseEnter={(e) => {
+                                    e.currentTarget.style.backgroundColor = styles.dropdownItemHover.backgroundColor;
+                                    e.currentTarget.style.border = styles.dropdownItemHover.border;
+                                }}
+                                onMouseLeave={(e) => {
+                                    e.currentTarget.style.backgroundColor = styles.dropdownItem.backgroundColor;
+                                    e.currentTarget.style.border = styles.dropdownItem.border;
+                                }}
+                            >
+                                Profile
+                            </MenuItem>
+                            <MenuDivider style={styles.menuDivider} />
+                            <MenuItem
+                                style={styles.dropdownItem}
+                                icon={<FaSignOutAlt />}
+                                className="font-reg secondary-text"
+                                onMouseEnter={(e) => {
+                                    e.currentTarget.style.backgroundColor = styles.dropdownItemHover.backgroundColor;
+                                    e.currentTarget.style.border = styles.dropdownItemHover.border;
+                                }}
+                                onMouseLeave={(e) => {
+                                    e.currentTarget.style.backgroundColor = styles.dropdownItem.backgroundColor;
+                                    e.currentTarget.style.border = styles.dropdownItem.border;
+                                }}
+                            >
+                                Sign Out
+                            </MenuItem>
                         </MenuList>
                     </Menu>
                 ) : (
@@ -233,7 +277,25 @@ const styles = {
     },
     profile: {
         marginRight: '5px',
-    }
+    },
+    dropdownmenu: {
+        backgroundColor: '#121927',
+        border: '2px solid #3D4452',
+    },
+    dropdownItem: {
+        backgroundColor: 'transparent',
+        color: '#BBC1C8',
+        border: '1.5px solid transparent',
+        transition: 'all 0.2s ease-in-out',
+    },
+    menuDivider: {
+        border: '1px solid #3D4452'
+    },
+    dropdownItemHover: {
+        backgroundColor: '#262C35',
+        border: '1.5px solid #3D4452',
+        transition: 'all 0.2s ease-in-out',
+    },
 
 }
 

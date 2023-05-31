@@ -54,6 +54,7 @@
 .font-reg{
   font-family: 'PTSans-Regular', sans-serif;
 }
+
 .font-bold{
   font-family: 'PTSans-Bold', sans-serif;
 }
@@ -203,3 +204,4 @@ h1{
   color: var(--primary-text-color);
 
 }
+
