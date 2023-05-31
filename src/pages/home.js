@@ -9,8 +9,11 @@ import PopularNades from '../components/PopularNades';
 import NavBar from '../components/NavBar'
 
 
-
 function Home() {
+
+
+
+
   return (
     <ChakraProvider>
     <div className="App">
@@ -19,6 +22,7 @@ function Home() {
       <MapSelector />
       <PopularNades />
     </div>
+    
     <div className="app-background"></div>
   </ChakraProvider>
 

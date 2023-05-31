@@ -3,6 +3,7 @@ import { useState } from "react";
 
 import { ChakraProvider } from "@chakra-ui/react";
 import { FaBars } from 'react-icons/fa';
+import Line from './line'
 
 import '../style.css';
 
@@ -31,11 +32,24 @@ function NavBar() {
             {/* Menu */}
             <div className={`menu ${isOpen ? 'open' : ''}`}>
                 <div className="menu-item">
-                    
+                    <p className="font-reg primary-text">ACTIVE DUTY</p>
+                    <Line/>
+                    <ul style={styles.ul}>
+                        <li className="font-bold secondary-text nav-link" style={styles.li}>Dust 2</li>
+                        <li className="font-bold secondary-text nav-link" style={styles.li}>Inferno</li>
+                        <li className="font-bold secondary-text nav-link" style={styles.li}>Mirage</li>
+                        <li className="font-bold secondary-text nav-link" style={styles.li}>Nuke</li>
+                        <li className="font-bold secondary-text nav-link" style={styles.li}>Overpass</li>
+                        <li className="font-bold secondary-text nav-link" style={styles.li}>Train</li>
+                        <li className="font-bold secondary-text nav-link" style={styles.li}>Vertigo</li>
+                        
+                    </ul>
                 </div>
             </div>
             {/* Right side where the profile is */}
+            <div className={`overlay ${isOpen ? 'open' : ''}`}></div>
         </nav>
+        
     );
 }
 
@@ -44,6 +58,7 @@ const styles = {
         height: '50px',
         display: 'flex',
         justifyContent: 'space-between',
+        flexDirection: 'column',
         alignItems: 'center',
         position: 'fixed',
         top: '0',
@@ -60,7 +75,13 @@ const styles = {
     },
     sandwhich: {
         fontSize: '20px',
-    }
+    },
+    ul: {
+        listStyle: 'none',
+        padding: '0',
+        margin: '0',
+    },
+
 }
 
 export default NavBar;
