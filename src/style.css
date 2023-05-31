@@ -40,7 +40,7 @@
   --primary-button-color: #212836;
   --secondary-button-color: #262C35;
 
-  --primary-highlight-color: #212836;
+  --primary-highlight-color: #262C35;
 
   --card-color: #151C2C;
 
@@ -71,15 +71,24 @@
 }
 .primary-highlight:hover{
   background-color: var(--primary-highlight-color);
+  transition: all 0.2s ease;
+  color: white;
 }
 .primary-button{
   background-color: var(--primary-button-color);
-  border: 3px solid var(--primary-border-color);
+  border: 2px solid var(--primary-border-color);
   border-radius: 10px;
+  padding: 5px;
+
+
+}
+.hover-button:hover{
+  background-color: var(--primary-highlight-color);
+  
 }
 .secondary-button{
   background-color: var(--secondary-button-color);
-  border: 3px solid var(--primary-border-color);
+  border: 2px solid var(--primary-border-color);
   border-radius: 10px;
 }
 
@@ -191,5 +200,6 @@ h1{
   border: 1.5px solid #3D4452;
   background-color: var(--primary-highlight-color);
   outline: none;
+  color: var(--primary-text-color);
 
 }

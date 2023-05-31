@@ -2,16 +2,30 @@ import React from "react";
 import { useState } from "react";
 
 import { ChakraProvider } from "@chakra-ui/react";
-import { FaBars } from 'react-icons/fa';
+import { FaBars, FaRegUserCircle } from 'react-icons/fa';
+import {
+    Menu,
+    MenuButton,
+    MenuList,
+    MenuItem,
+    MenuItemOption,
+    MenuGroup,
+    MenuOptionGroup,
+    MenuDivider,
+    Button,
+} from '@chakra-ui/react'
+import { ChevronDownIcon } from '@chakra-ui/icons'
 import Line from './line'
 
 import '../style.css';
-import { click } from "@testing-library/user-event/dist/click";
 
 
+import { useAuth } from '../contexts/AuthContext';
 
 
 function NavBar() {
+    const { signInWithGoogle, signOut, currentUser } = useAuth();
+
 
 
     const [isOpen, setIsOpen] = useState(false);
@@ -71,7 +85,7 @@ function NavBar() {
             activeDuty: false
         },
         {
-            name: 'Dust ii',
+            name: 'Dust II',
             numOfNades: 19,
             id: 9,
             activeDuty: false
@@ -92,7 +106,7 @@ function NavBar() {
 
 
     function NavLink({ mapInfo }) {
-        const mapName = mapInfo.name.toUpperCase();
+        const mapName = mapInfo.name;
         return (
             <li className="font-bold secondary-text nav-link" style={styles.li} >
                 <a tabIndex={0}>{mapName}</a>
@@ -102,6 +116,7 @@ function NavBar() {
             </li>
         )
     }
+
 
     return (
         <nav style={styles.NavBar}>
@@ -137,6 +152,31 @@ function NavBar() {
                 </div>
             </div>
             {/* Right side where the profile is */}
+            <div className="profile-container">
+                {currentUser ? (
+                    <Menu>
+                        <MenuButton className="primary-button font-reg secondary-text" style={styles.menu} >
+                            <div style={styles.profilecont}>
+                                <FaRegUserCircle style={styles.profile} />
+                                {currentUser.displayName}
+                                <ChevronDownIcon style={styles.chevron} />
+                            </div>
+                        </MenuButton>
+                        <MenuList>
+                            <MenuItem>Download</MenuItem>
+                            <MenuItem>Create a Copy</MenuItem>
+                            <MenuItem>Mark as Draft</MenuItem>
+                            <MenuItem>Delete</MenuItem>
+                            <MenuItem>Attend a Workshop</MenuItem>
+                        </MenuList>
+                    </Menu>
+                ) : (
+                    <button className="primary-button font-reg secondary-text primary-highlight" onClick={signInWithGoogle}>Sign In With Google</button>
+                )}
+            </div>
+
+
+            {/* Menu Overlay */}
             <div className={`overlay ${isOpen ? 'open' : ''}`} onClick={handleClick}></div>
         </nav>
 
@@ -146,31 +186,54 @@ function NavBar() {
 const styles = {
     NavBar: {
         height: '50px',
+        width: '100%',
         display: 'flex',
         justifyContent: 'space-between',
-        flexDirection: 'column',
+        backgroundColor: '#0D1520',
+        flexDirection: 'row',
         alignItems: 'center',
         position: 'fixed',
         top: '0',
         left: '0',
         zIndex: '100',
+        // padding left & right 15px
+        paddingLeft: '15px',
+        paddingRight: '15px',
     },
     sandwhichContainer: {
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
-        height: '100%',
-        width: '50px',
+        height: '25px',
+        width: '25px',
         zIndex: '101',
     },
     sandwhich: {
-        fontSize: '20px',
+        width: '100%',
+        height: '100%',
     },
     ul: {
         listStyle: 'none',
         padding: '0',
         margin: '0',
     },
+    menu: {
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        paddingLeft: '15px',
+        paddingRight: '15px',
+    },
+    profilecont: {
+        display: 'flex',
+        justifyContent: 'space-evenly',
+        alignItems: 'center',
+
+
+    },
+    profile: {
+        marginRight: '5px',
+    }
 
 }
 
