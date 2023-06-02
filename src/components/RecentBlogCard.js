@@ -1,11 +1,11 @@
 import React from "react";
 import '../style.css'
-import { FaHeart } from "react-icons/fa";
+import { FaEye, FaHeart } from "react-icons/fa";
 
 // import chakra ui badge
 import { Badge } from "@chakra-ui/react"
 
-function PopularNadeCard(props) {
+function RecentBlogCard(props) {
     let badge = null;
     if(props.tag === 'popular') {
         badge  = <Badge colorScheme="purple" variant='outline' style={styles.badge}>POPULAR</Badge>
@@ -15,10 +15,11 @@ function PopularNadeCard(props) {
     }else {
         badge = <Badge variant='outline'>VERIFIED</Badge>
     }
-    const mapName = props.map.toLowerCase();
-    const mapImage = require(`../images/MapImages/${mapName}-map.webp`);
+    
+    
+
     return(
-    <div style={styles.PopularNadeCard} className="card" tabIndex={0}>
+    <div style={styles.RecentBlogCard} className="card" tabIndex={0}>
         <div style= {styles.top}>
             <p style={styles.p} className="font-bold primary-text" tabIndex={0}>
                 {props.title}
@@ -28,13 +29,13 @@ function PopularNadeCard(props) {
             </p>
         </div>
         <div style={styles.middle}>
-            <img src={mapImage} style={styles.img} tabIndex={0}/>
+            <img src='' style={styles.img} tabIndex={0}/>
         </div>
         <div style={styles.bottom}>
             <div style={styles.left}>{badge}</div>
             <div style={styles.right}>
-                <p style={styles.likes}>{props.likes}</p>
-                <FaHeart color="white"/>
+                <p style={styles.likes}>{props.views}</p>
+                <FaEye color="white"/>
             </div>
             
         </div>
@@ -43,7 +44,7 @@ function PopularNadeCard(props) {
 }
 
 const styles = {
-    PopularNadeCard: {
+    RecentBlogCard: {
         height: '300px',
 
         borderRadius: '8px',
@@ -107,4 +108,4 @@ const styles = {
         
 }
 
-export default PopularNadeCard;
+export default RecentBlogCard;

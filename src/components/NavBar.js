@@ -99,7 +99,7 @@ function NavBar() {
     function NavLink({ mapInfo }) {
         const mapName = mapInfo.name;
         return (
-            <li className="font-bold secondary-text nav-link" style={styles.li} >
+            <li className="font-reg secondary-text nav-link" style={styles.li} >
                 <a tabIndex={0}>{mapName}</a>
                 <div>
                     <p className="font-reg secondary-text">{mapInfo.numOfNades}</p>
@@ -117,7 +117,7 @@ function NavBar() {
             {/* Menu */}
             <div className={`menu ${isOpen ? 'open' : ''}`}>
                 <div className="menu-item">
-                    <p className="font-reg primary-text" tabIndex={0}>ACTIVE DUTY MAPS</p>
+                    <p className="font-bold primary-text" tabIndex={0}>ACTIVE DUTY MAPS</p>
                     <Line />
                     <ul style={styles.ul}>
                         {activeDutyMapCollection
@@ -209,6 +209,7 @@ function NavBar() {
                                     e.currentTarget.style.backgroundColor = styles.dropdownItem.backgroundColor;
                                     e.currentTarget.style.border = styles.dropdownItem.border;
                                 }}
+                                onClick={signOut}
                             >
                                 Sign Out
                             </MenuItem>

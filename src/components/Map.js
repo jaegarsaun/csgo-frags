@@ -24,6 +24,7 @@ function Map({ mapName }) {
             onMouseEnter={mouseOver}
             onMouseLeave={mouseOut}
             className="primary-button"
+            tabIndex={0}
             
         >
             <img src={mapImage} alt={mapName} style={styles.mapImg} className="mapImg" />

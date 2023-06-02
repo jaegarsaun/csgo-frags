@@ -7,7 +7,7 @@ import Header from '../components/Header';
 import MapSelector from '../components/MapSelector';
 import PopularNades from '../components/PopularNades';
 import NavBar from '../components/NavBar'
-
+import RecentBlogs from '../components/RecentBlogs';
 
 function Home() {
 
@@ -21,6 +21,7 @@ function Home() {
       <Header />
       <MapSelector />
       <PopularNades />
+      <RecentBlogs />
     </div>
     
     <div className="app-background"></div>
