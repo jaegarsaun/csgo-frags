@@ -8,9 +8,6 @@ import {
     MenuList,
     MenuItem,
     MenuDivider,
-    Image,
-    border,
-    transition,
 } from '@chakra-ui/react'
 import { ChevronDownIcon, AddIcon, DeleteIcon } from '@chakra-ui/icons'
 import Line from './line'
@@ -100,7 +97,7 @@ function NavBar() {
         const mapName = mapInfo.name;
         return (
             <li className="font-reg secondary-text nav-link" style={styles.li} >
-                <a tabIndex={0}>{mapName}</a>
+                <a href="#" tabIndex={0}>{mapName}</a>
                 <div>
                     <p className="font-reg secondary-text">{mapInfo.numOfNades}</p>
                 </div>

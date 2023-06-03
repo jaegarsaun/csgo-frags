@@ -72,7 +72,7 @@ function PopularNades() {
 
 const styles = {
     PopularNades: {
-        height: '50vh',
+        height: 'auto',
         width: '100vw',
         display: 'flex',
         flexDirection: 'column',

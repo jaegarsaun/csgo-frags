@@ -131,7 +131,9 @@ h1{
     font-family: 'PTSans-Bold', sans-serif;
     font-weight: 700;
 }
-
+.logoSpan{
+  color: #008AFF
+}
 .mapName{
   font-family: 'PTSans-Bold', sans-serif;
   font-weight: 700;

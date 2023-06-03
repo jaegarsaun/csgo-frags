@@ -1,4 +1,4 @@
-import {ChakraProvider, Switch} from '@chakra-ui/react';
+import {ChakraProvider } from '@chakra-ui/react';
 import React from 'react';
 import '../style.css';
 
@@ -8,7 +8,7 @@ import MapSelector from '../components/MapSelector';
 import PopularNades from '../components/PopularNades';
 import NavBar from '../components/NavBar'
 import RecentBlogs from '../components/RecentBlogs';
-
+import Footer from '../components/footer';
 function Home() {
 
 
@@ -22,6 +22,7 @@ function Home() {
       <MapSelector />
       <PopularNades />
       <RecentBlogs />
+      <Footer />
     </div>
     
     <div className="app-background"></div>

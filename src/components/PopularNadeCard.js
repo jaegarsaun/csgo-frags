@@ -28,7 +28,7 @@ function PopularNadeCard(props) {
             </p>
         </div>
         <div style={styles.middle}>
-            <img src={mapImage} style={styles.img} tabIndex={0}/>
+            <img src={mapImage} style={styles.img} tabIndex={0} alt="Grenade Linup"/>
         </div>
         <div style={styles.bottom}>
             <div style={styles.left}>{badge}</div>
@@ -44,7 +44,7 @@ function PopularNadeCard(props) {
 
 const styles = {
     PopularNadeCard: {
-        height: '300px',
+        height: 'auto',
 
         borderRadius: '8px',
         boxShadow: 'rgba(0, 0, 0, 0.24) 0px 3px 8px',

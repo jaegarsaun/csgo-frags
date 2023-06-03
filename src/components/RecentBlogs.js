@@ -69,7 +69,6 @@ function RecentBlogs() {
 
 const styles = {
     RecentBlogs: {
-        height: '50vh',
         width: '100vw',
         display: 'flex',
         flexDirection: 'column',

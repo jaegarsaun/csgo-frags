@@ -1,6 +1,6 @@
 import React from "react";
 import '../style.css'
-import { FaEye, FaHeart } from "react-icons/fa";
+import { FaEye } from "react-icons/fa";
 
 // import chakra ui badge
 import { Badge } from "@chakra-ui/react"
@@ -29,7 +29,10 @@ function RecentBlogCard(props) {
             </p>
         </div>
         <div style={styles.middle}>
-            <img src='' style={styles.img} tabIndex={0}/>
+            <img src='' style={styles.img} tabIndex={0} alt="Blog post"/>
+        </div>
+        <div styles={styles.middle2}>
+            <p style={styles.description} className="font-reg secondary-text">{props.description}</p>
         </div>
         <div style={styles.bottom}>
             <div style={styles.left}>{badge}</div>
@@ -45,7 +48,7 @@ function RecentBlogCard(props) {
 
 const styles = {
     RecentBlogCard: {
-        height: '300px',
+        height: 'auto',
 
         borderRadius: '8px',
         boxShadow: 'rgba(0, 0, 0, 0.24) 0px 3px 8px',
@@ -66,6 +69,10 @@ const styles = {
     middle: {
         flexGrow: '1',
     },
+    middle2: {
+        flexGrow: '1',
+
+    },
     bottom: {
         height: '35px',
         backgroundColor: 'rgba(21, 24, 41, 0.47)',
@@ -74,12 +81,20 @@ const styles = {
         alignItems: 'center',
     },
     img: {
-        height: '100%',
         width: '100%',
+        height: '100%',
+        // aspect ratio
+        aspectRatio: '16/9',
         objectFit: 'cover',
     },
     p:{
         fontSize: '20px',
+
+    },
+    description:{
+        fontSize: '15px',
+        textAlign: 'center',
+        margin: '10px'
     },
     pBottom:{
         fontSize: '15px',

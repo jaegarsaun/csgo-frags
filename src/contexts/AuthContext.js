@@ -1,6 +1,7 @@
 import React, { createContext, useContext, useEffect, useState } from 'react';
 import { auth, signInWithGoogle, signOut } from '../firebase';
 
+
 // Create the context
 const AuthContext = createContext();
 
@@ -19,12 +20,14 @@ export const AuthProvider = ({ children }) => {
         signInWithGoogle()
             .then((result) => {
                 console.log(result);
+
             })
             .catch((error) => {
                 alert('Error Signing In');
                 console.log(error);
             });
     };
+
     // Function to handle the sign-out
     const handleSignOut = () => {
         signOut()
@@ -37,13 +40,15 @@ export const AuthProvider = ({ children }) => {
             });
     };
 
+
+
     useEffect(() => {
         // Subscribe to changes in the authentication state
         const unsubscribe = auth.onAuthStateChanged((user) => {
             setLoading(false);
             setCurrentUser(user);
-
         });
+
         return unsubscribe;
     }, []);
 
