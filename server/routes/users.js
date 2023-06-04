@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-
+const User = require('../models/usersModel');
 
 // GET all users (read & return)
 router.get('/', (req, res) => {
@@ -17,10 +17,17 @@ router.get('/:id', (req, res) => {
 })
 
 // POST a user (create)
-router.post('/', (req, res) => {
-    res.json({
-        message: 'POST a user'
-    })
+router.post('/', async (req, res) => {
+    // send these to the request body
+    const { userID, email, displayName, role } = req.body;
+    try{
+        // Create a new user
+        const user = await User.create({userID, email, displayName, role});
+        res.status(200).json(user);
+    }catch(err){
+        res.status(400).json({error: err.message})
+    }
+    
 })
 
 // DELETE a user (delete)
