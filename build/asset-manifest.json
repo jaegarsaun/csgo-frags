@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.d9c3bb69.css",
-    "main.js": "/static/js/main.14604927.js",
+    "main.js": "/static/js/main.4e95a2c8.js",
     "static/media/ancient-map.webp": "/static/media/ancient-map.45b258fa6de07641d81e.webp",
     "static/media/overpass-map.webp": "/static/media/overpass-map.ec6225cf9f7560f89f43.webp",
     "static/media/PTSans-Bold.ttf": "/static/media/PTSans-Bold.00fb87f6381ccd8ec07d.ttf",
@@ -14,10 +14,10 @@
     "static/media/csgonadeicon.png": "/static/media/csgonadeicon.62a62acb375c8d475c98.png",
     "index.html": "/index.html",
     "main.d9c3bb69.css.map": "/static/css/main.d9c3bb69.css.map",
-    "main.14604927.js.map": "/static/js/main.14604927.js.map"
+    "main.4e95a2c8.js.map": "/static/js/main.4e95a2c8.js.map"
   },
   "entrypoints": [
     "static/css/main.d9c3bb69.css",
-    "static/js/main.14604927.js"
+    "static/js/main.4e95a2c8.js"
   ]
 }
