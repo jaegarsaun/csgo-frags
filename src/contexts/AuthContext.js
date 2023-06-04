@@ -21,23 +21,7 @@ export const AuthProvider = ({ children }) => {
             .then((result) => {
                 console.log(result);
 
-               // make a call to the backend to consolelog all users
-
-               const fetchData = async () => {
-                try {
-                  const response = await fetch(`http://localhost:5050/src/server/routes/user`);
-                  if (response.ok) {
-                    const data = await response.json();
-                    console.log(data);
-                  } else {
-                    console.log("Error:", response.statusText);
-                  }
-                } catch (error) {
-                  console.log("Error:", error);
-                }
-              };
-              
-              fetchData();
+               
 
 
                
