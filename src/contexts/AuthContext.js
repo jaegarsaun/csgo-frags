@@ -1,7 +1,6 @@
 import React, { createContext, useContext, useEffect, useState } from 'react';
 import { auth, signInWithGoogle, signOut } from '../firebase';
 
-
 // Create the context
 const AuthContext = createContext();
 
@@ -19,16 +18,41 @@ export const AuthProvider = ({ children }) => {
     const handleSignInWithGoogle = () => {
         signInWithGoogle()
             .then((result) => {
-                console.log(result);
+                // make sure userID is an int
+                const userID = result.user.uid;
+                const findUser = async () => {
+                    const response = await fetch(`http://localhost:4000/api/users/${userID}`);
+                    
+                    if (response.ok) {
+                        // dont need to do anything
+                        console.log('User found');
+                        return;        
+                    }else if(response.status === 404){
+                        // create user
+                        console.log('User not found');
 
-               
+                        const user = {
+                            userID: userID,
+                            email: result.user.email,
+                            displayName: result.user.displayName,
+                            role: 'user',
+                        };
+                        const response = await fetch('http://localhost:4000/api/users', {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json',
+                            },
+                            body: JSON.stringify(user),
+                        });
+                        if (response.ok) {
+                            console.log('User created');
+                        }else{
+                            console.log('User not created');
+                        }
 
-
-               
-
-
-
-            
+                    }
+                }
+                findUser();
             })
             .catch((error) => {
                 alert('Error Signing In');
