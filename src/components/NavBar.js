@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useState } from "react";
 
 import { FaBars, FaRegUserCircle, FaSignOutAlt } from 'react-icons/fa';
@@ -11,6 +11,7 @@ import {
 } from '@chakra-ui/react'
 import { ChevronDownIcon, AddIcon, DeleteIcon } from '@chakra-ui/icons'
 import Line from './line'
+import ProfileDropdown from "./ProfileDropdown";
 
 import '../style.css';
 
@@ -24,7 +25,7 @@ function NavBar() {
     const handleClick = () => {
         setIsOpen(!isOpen);
     };
-    
+
     const activeDutyMapCollection = [
         {
             name: 'Ancient',
@@ -94,6 +95,8 @@ function NavBar() {
             activeDuty: false
         },
     ]
+   
+
     function NavLink({ mapInfo }) {
         const mapName = mapInfo.name;
         return (
@@ -105,6 +108,7 @@ function NavBar() {
             </li>
         )
     }
+    
     return (
         <nav style={styles.NavBar}>
             {/* Left side of the navbar where the hamburger is */}
@@ -141,78 +145,7 @@ function NavBar() {
             {/* Right side where the profile is */}
             <div className="profile-container">
                 {currentUser ? (
-                    <Menu>
-                        <MenuButton className="primary-button font-reg secondary-text" style={styles.menu} >
-
-                            {currentUser.displayName}
-                            <ChevronDownIcon />
-
-                        </MenuButton>
-                        <MenuList style={styles.dropdownmenu}>
-                            <MenuItem
-                                style={styles.dropdownItem}
-                                icon={<AddIcon />}
-                                className="font-reg secondary-text"
-                                onMouseEnter={(e) => {
-                                    e.currentTarget.style.backgroundColor = styles.dropdownItemHover.backgroundColor;
-                                    e.currentTarget.style.border = styles.dropdownItemHover.border;
-                                }}
-                                onMouseLeave={(e) => {
-                                    e.currentTarget.style.backgroundColor = styles.dropdownItem.backgroundColor;
-                                    e.currentTarget.style.border = styles.dropdownItem.border;
-                                }}
-                            >
-                                Add Nade
-                            </MenuItem>
-                            <MenuItem
-                                style={styles.dropdownItem}
-                                icon={<DeleteIcon />}
-                                className="font-reg secondary-text"
-                                onMouseEnter={(e) => {
-                                    e.currentTarget.style.backgroundColor = styles.dropdownItemHover.backgroundColor;
-                                    e.currentTarget.style.border = styles.dropdownItemHover.border;
-                                }}
-                                onMouseLeave={(e) => {
-                                    e.currentTarget.style.backgroundColor = styles.dropdownItem.backgroundColor;
-                                    e.currentTarget.style.border = styles.dropdownItem.border;
-                                }}
-                            >
-                                Delete Nade
-                            </MenuItem>
-                            <MenuItem
-                                style={styles.dropdownItem}
-                                icon={<FaRegUserCircle />}
-                                className="font-reg secondary-text"
-                                onMouseEnter={(e) => {
-                                    e.currentTarget.style.backgroundColor = styles.dropdownItemHover.backgroundColor;
-                                    e.currentTarget.style.border = styles.dropdownItemHover.border;
-                                }}
-                                onMouseLeave={(e) => {
-                                    e.currentTarget.style.backgroundColor = styles.dropdownItem.backgroundColor;
-                                    e.currentTarget.style.border = styles.dropdownItem.border;
-                                }}
-                            >
-                                Profile
-                            </MenuItem>
-                            <MenuDivider style={styles.menuDivider} />
-                            <MenuItem
-                                style={styles.dropdownItem}
-                                icon={<FaSignOutAlt />}
-                                className="font-reg secondary-text"
-                                onMouseEnter={(e) => {
-                                    e.currentTarget.style.backgroundColor = styles.dropdownItemHover.backgroundColor;
-                                    e.currentTarget.style.border = styles.dropdownItemHover.border;
-                                }}
-                                onMouseLeave={(e) => {
-                                    e.currentTarget.style.backgroundColor = styles.dropdownItem.backgroundColor;
-                                    e.currentTarget.style.border = styles.dropdownItem.border;
-                                }}
-                                onClick={signOut}
-                            >
-                                Sign Out
-                            </MenuItem>
-                        </MenuList>
-                    </Menu>
+                    <ProfileDropdown />
                 ) : (
                     <button className="primary-button font-reg secondary-text primary-highlight" onClick={signInWithGoogle}>Sign In With Google</button>
                 )}
