@@ -15,16 +15,11 @@ const getAllUsers = async (req, res) => {
 // GET a user (read & return)
 const getSingleUser = async (req, res) => {
     try {
-        const id = req.params.userID; // Corrected code
-        console.log(id);
-        console.log(req.params)
-        console.log(req.params.userID)
+        const id = req.params.userID; 
         const user = await User.find({ "userID": id });
-
         if (user.length === 0) { // Check the length of the user array
             return res.status(404).json({ error: 'User not found' });
         }
-
         res.status(200).json(user);
     } catch (err) {
         res.status(400).json({ error: err.message })
@@ -48,10 +43,10 @@ const createUser = async (req, res) => {
 const deleteUser = async (req, res) => {
     try {
         const { id } = req.params;
-        if(!mongoose.Types.ObjectId.isValid(id)) {
+        if (!mongoose.Types.ObjectId.isValid(id)) {
             return res.status(404).json({ error: 'Invalid ID' });
         }
-        const user = await User.findOneAndDelete({ _id: id});
+        const user = await User.findOneAndDelete({ _id: id });
 
         if (!user) {
             return res.status(404).json({ error: 'User not found' });
@@ -66,10 +61,10 @@ const deleteUser = async (req, res) => {
 const updateUser = async (req, res) => {
     try {
         const { id } = req.params;
-        if(!mongoose.Types.ObjectId.isValid(id)) {
+        if (!mongoose.Types.ObjectId.isValid(id)) {
             return res.status(404).json({ error: 'Invalid ID' });
         }
-        const user = await User.findOneAndUpdate({_id: id}, {
+        const user = await User.findOneAndUpdate({ _id: id }, {
             ...req.body,
         })
         if (!user) {

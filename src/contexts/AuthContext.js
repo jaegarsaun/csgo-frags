@@ -16,27 +16,27 @@ export const AuthProvider = ({ children }) => {
 
     // Function to handle the sign-in with Google
     const handleSignInWithGoogle = () => {
+        // Call the signInWithGoogle function from firebase.js
         signInWithGoogle()
             .then((result) => {
-                // make sure userID is an int
+                // Get the userID from the firebase user object
                 const userID = result.user.uid;
                 const findUser = async () => {
-                    const response = await fetch(`http://localhost:4000/api/users/${userID}`);
-                    
+                    // Create a request to the server to check if the user is in the database
+                    const response = await fetch(`http://localhost:4000/api/users/${userID}`,{method: 'GET'});
                     if (response.ok) {
-                        // dont need to do anything
-                        console.log('User found');
+                        // dont need to do anything because the user is in the database
                         return;        
                     }else if(response.status === 404){
-                        // create user
-                        console.log('User not found');
-
+                        // User is not found so create the user
+                        // Create the user object
                         const user = {
                             userID: userID,
                             email: result.user.email,
                             displayName: result.user.displayName,
                             role: 'user',
                         };
+                        // Create a request to the server
                         const response = await fetch('http://localhost:4000/api/users', {
                             method: 'POST',
                             headers: {
@@ -45,11 +45,12 @@ export const AuthProvider = ({ children }) => {
                             body: JSON.stringify(user),
                         });
                         if (response.ok) {
+                            // User created and added to the database
                             console.log('User created');
                         }else{
+                            // User not created because there was an error
                             console.log('User not created');
                         }
-
                     }
                 }
                 findUser();

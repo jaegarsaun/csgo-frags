@@ -15,7 +15,7 @@ const {
 router.get('/', getAllUsers);
 
 // GET a user (read & return)
-router.get('/:id', getSingleUser);
+router.get('/:userID', getSingleUser);
 
 // POST a user (create)
 router.post('/', createUser);

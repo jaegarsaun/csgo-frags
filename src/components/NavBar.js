@@ -24,6 +24,7 @@ function NavBar() {
     const handleClick = () => {
         setIsOpen(!isOpen);
     };
+    
     const activeDutyMapCollection = [
         {
             name: 'Ancient',
