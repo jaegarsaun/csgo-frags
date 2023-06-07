@@ -2,7 +2,6 @@ import React from "react";
 import '../style.css'
 import { SimpleGrid } from "@chakra-ui/react"
 import RecentBlogCard from "./RecentBlogCard";
-import { FaEye } from 'react-icons/fa';
 function RecentBlogs() {
 
     // Example data

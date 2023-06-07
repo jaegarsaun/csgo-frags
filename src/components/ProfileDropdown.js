@@ -19,8 +19,10 @@ import { useAuth } from '../contexts/AuthContext';
 
 import { ChevronDownIcon, AddIcon, DeleteIcon } from '@chakra-ui/icons'
 
+import { Link } from 'react-router-dom';
+
 const ProfileDropdown = () => {
-    const { signInWithGoogle, signOut, currentUser } = useAuth();
+    const { signOut, currentUser } = useAuth();
     const [displayName, setDisplayName] = useState('');
     const [isModOrAdmin, setIsModOrAdmin] = useState(false);
 
@@ -58,6 +60,7 @@ const ProfileDropdown = () => {
 
             </MenuButton>
             <MenuList style={styles.dropdownmenu}>
+                <Link to='/createnade'>
                 <MenuItem
                     style={styles.dropdownItem}
                     icon={<AddIcon />}
@@ -73,6 +76,7 @@ const ProfileDropdown = () => {
                 >
                     Add Nade
                 </MenuItem>
+                </Link>
                 <MenuItem
                     style={styles.dropdownItem}
                     icon={<DeleteIcon />}

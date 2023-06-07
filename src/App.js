@@ -5,6 +5,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { AuthProvider } from './contexts/AuthContext';
 // Import pages
 import Home from './pages/home';
+import CreateNade from './pages/createnade';
 
 
 
@@ -17,6 +18,7 @@ function App() {
           <Routes>
             <Route index element={<Home />} />
             <Route path="/home" element={<Home />} />
+            <Route path='/createnade' element={<CreateNade />} />
 
           </Routes>
         </BrowserRouter>
