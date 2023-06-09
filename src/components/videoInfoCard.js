@@ -19,6 +19,7 @@ import {
 import { FaCamera, FaCrosshairs, FaEye, FaMusic } from 'react-icons/fa';
 import { WarningIcon, CheckIcon } from '@chakra-ui/icons'
 import CopyButton from './copyButton';
+import { get } from "mongoose";
 
 
 
@@ -35,6 +36,7 @@ function VideoInfoCard() {
         setIsValidUrl(isValid);
     };
 
+    // todo: see if the video actually exists on youtube
     const validateUrl = (url) => {
         const youtubeRegex = /^https?:\/\/(www\.)?youtube\.com\/watch\?v=.+$/;
         // get the video id from the url
@@ -47,13 +49,15 @@ function VideoInfoCard() {
             return;
         }
         return youtubeRegex.test(url);
+
     };
+
 
     // useEfect fucntion to update the iframe src when the video id changes
     useEffect(() => {
         setYoutubeUrl(`https://www.youtube.com/embed/${videoId}`);
     }, [videoId]);
-    
+
 
 
 

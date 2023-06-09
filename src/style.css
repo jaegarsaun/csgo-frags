@@ -226,12 +226,12 @@ h1{
 .form-content-wrapper{
   display: flex;
   justify-content: space-between;
-  align-items: center;
+
   width: 100%;
   height: calc(100% - 50px);
 }
 .form-content-left, .form-content-right{
-  height: 100%;
+  height: auto;
   display: flex;
 
   flex-direction: column;
