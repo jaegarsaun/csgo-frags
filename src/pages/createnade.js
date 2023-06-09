@@ -6,6 +6,7 @@ import '../style.css';
 import NavBar from '../components/NavBar';
 import Footer from '../components/footer';
 import VideoInfoCard from '../components/videoInfoCard';
+import NadeInfoCard from '../components/NadeInfoCard';
 function CreateNade() {
 
     return (
@@ -15,7 +16,7 @@ function CreateNade() {
 
 
                 <VideoInfoCard />
-
+                <NadeInfoCard />
                 <Footer />
             </div>
 
