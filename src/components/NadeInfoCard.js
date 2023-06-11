@@ -18,14 +18,32 @@ import {
     Flex,
     Spacer,
     Box,
+    HStack,
+    useRadioGroup,
+    Radio,
+    RadioGroup,
+    Stack,
+    RadioCard,
 } from '@chakra-ui/react'
+import CustomRadio from './customRadio';
 
 import { FaCamera, FaCrosshairs, FaEye, FaMusic } from 'react-icons/fa';
 import { WarningIcon, CheckIcon } from '@chakra-ui/icons'
+import { Form } from "react-router-dom";
 
 
 
 function VideoInfoCard() {
+    const nadeTypes = ['Grenade', 'Molotov', 'Smoke', 'Flashbang', 'Decoy']
+    const teams = ['Counter Terrorists', 'Terrorists', 'Both']
+
+    const { getRootProps, getRadioProps } = useRadioGroup({
+        name: 'framework',
+        defaultValue: 'react',
+        onChange: console.log,
+    })
+
+    const group = getRootProps()
 
     return (
         <div className="add-wrapper">
@@ -39,7 +57,7 @@ function VideoInfoCard() {
 
                 {/* Form with two sides (left and right*/}
                 <div className="form-content-wrapper">
-
+                    <div className="form-content-top">
                     <div className="form-content-left" style={styles.Cont}>
                         <FormControl>
                             <Box>
@@ -56,7 +74,7 @@ function VideoInfoCard() {
                                     <option value="7">Vertigo</option>
                                 </Select>
                             </Box>
-                            <Flex marginTop={'10px'}>
+                            <HStack marginTop={'10px'}>
                                 <Box width={'49%'}>
                                     <FormLabel className="secondary-text font-bold" style={styles.label}>START POSITION</FormLabel>
                                     <Input style={styles.input} />
@@ -66,7 +84,7 @@ function VideoInfoCard() {
                                     <FormLabel className="secondary-text font-bold" style={styles.label}>END POSITION</FormLabel>
                                     <Input style={styles.input} />
                                 </Box>
-                            </Flex>
+                            </HStack>
                             <Box marginTop={'10px'}>
                                 <FormLabel className="secondary-text font-bold" style={styles.label}>MOVEMENT TYPE</FormLabel>
                                 <Select style={styles.input}>
@@ -85,7 +103,41 @@ function VideoInfoCard() {
 
 
                     <div className="form-content-right" style={styles.Cont}>
-
+                        <FormControl style={styles.rightCont}>
+                            <Box>
+                                <FormLabel className="secondary-text font-bold" style={styles.label}>NADE TYPE</FormLabel>
+                                <Select style={styles.input}>
+                                    {/* These will be rendered dynamicaly later on */}
+                                    <option value="0" disabled selected hidden>Select a nade type</option>
+                                    <option value="1">Grenade</option>
+                                    <option value="2">Molotov</option>
+                                    <option value="3">Smoke</option>
+                                    <option value="4">Flashbang</option>
+                                    <option value="5">Decoy</option>
+                                </Select>
+                            </Box>
+                            <Box marginTop={'10px'}>
+                                <FormLabel className="secondary-text font-bold" style={styles.label}>TEAM</FormLabel>
+                                <Select style={styles.input}>
+                                    {/* These will be rendered dynamicaly later on */}
+                                    <option value="0" disabled selected hidden>Select a team</option>
+                                    <option value='1'>Terrorists</option>
+                                    <option value='2'>Counter Terrorists</option>
+                                    <option value='3'>Both</option>
+                                </Select>
+                            </Box>
+                            <Box marginTop={'10px'}>
+                                <FormLabel className="secondary-text font-bold" style={styles.label}>TECHNIQUE</FormLabel>
+                                <Select style={styles.input}>
+                                    {/* These will be rendered dynamicaly later on */}
+                                    <option value="0" disabled selected hidden>Select a technique</option>
+                                    <option value='1'>Terrorists</option>
+                                    <option value='2'>Counter Terrorists</option>
+                                    <option value='3'>Both</option>
+                                </Select>
+                            </Box>
+                        </FormControl>
+                    </div>
                     </div>
 
                 </div>
@@ -159,7 +211,19 @@ const styles = {
     },
     Cont: {
         width: '50%',
-    }
+    },
+    rightCont: {
+        width: '100%',
+
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'center',
+        paddingLeft: '15px',
+
+
+    },
+
+
 
 
 

@@ -230,6 +230,12 @@ h1{
   width: 100%;
   height: calc(100% - 50px);
 }
+.form-content-top, .form-content-bottom{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+
+}
 .form-content-left, .form-content-right{
   height: auto;
   display: flex;
